@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import Calendar from "react-calendar";
-
-type ValuePiece = Date | null;
-
-type Value = ValuePiece | [ValuePiece, ValuePiece];
+import "react-calendar/dist/Calendar.css";
 
 export default function Home() {
-  const [value, onChange] = useState<Value>(new Date());
   return (
-    <div>
-      <Calendar value={new Date()} />
-    </div>
+    <Calendar
+      value={new Date()}
+      locale="ja-JP"
+      next2Label=""
+      onClickDay={(value, event) => {
+        console.log(value);
+      }}
+    />
   );
 }
